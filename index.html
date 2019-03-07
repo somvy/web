@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a href="/add_news">Добавить новость</a>
+    {% for item in news %}
+        <div class="alert alert-dark" role="alert">
+            <h2>{{item[1]}}</h2>
+            <div>{{item[2]}}</div>
+             <a href="/delete_news/{{item[0]}}">Удалить новость</a>
+        </div>
+    {% endfor %}
+    <a href="/add_item">Добавить товар</a>
+    {% for item in items %}
+        <div class="alert alert-dark" role="alert">
+            <h3>{{item[1]}}</h3>
+            <div>
+                <img width="700" height="300" src="{{ item[2] }}">
+                <h4>{{ item[3] }} р.</h4>
+                <h6>{{ item[4] }}</h6>
+                <h6>Осталось {{ item [5] }} шт.</h6>
+                <a href="/delete_item/{{item[0]}}">Удалить товар</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
